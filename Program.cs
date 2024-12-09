@@ -11,10 +11,13 @@ var endpoint = new Uri("http://localhost:11434");
 
 builder.Services.AddOllamaChatCompletion(modelId, endpoint);
 
-builder.Plugins
-    .AddFromType<MyTimePlugin>()
-    .AddFromObject(new MyLightPlugin(turnedOn: true))
-    .AddFromObject(new MyAlarmPlugin("11"));
+// // Default plugins 
+// builder.Plugins
+//     .AddFromType<MyTimePlugin>()
+//     .AddFromObject(new MyLightPlugin(turnedOn: true))
+//     .AddFromObject(new MyAlarmPlugin("11"));
+
+builder.Plugins.AddFromType<LightsPluginV2>();
 
 builder.Services.AddLogging(x => { x.AddConsole(); x.SetMinimumLevel(LogLevel.Information); });
 var kernel = builder.Build();
@@ -23,11 +26,8 @@ var settings = new OllamaPromptExecutionSettings { FunctionChoiceBehavior = Func
 
 Console.WriteLine("""
     Ask questions or give instructions to the copilot such as:
-    - Change the alarm to 8
-    - What is the current alarm set?
-    - Is the light on?
-    - Turn the light off please.
-    - Set an alarm for 6:00 am.
+    - Give me the available lamps?
+    - Turn on the lamp with id 1.
     """);
 
 Console.Write("> ");
