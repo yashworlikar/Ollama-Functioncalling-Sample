@@ -1,4 +1,4 @@
-# Semantic Kernel Ollama Connector  Sample
+# Semantic Kernel Ollama Connector Sample 
 
 ## Prerequisites
 - Docker
@@ -34,3 +34,6 @@ dotnet run
 - Ensure Docker is running
 - Verify Ollama container is active with `docker ps`
 - Check network connectivity to localhost:11434
+
+## Console app 
+![Running](https://github.com/user-attachments/assets/35cc459b-432e-4cfd-bcec-fdeaa22abd5d)
